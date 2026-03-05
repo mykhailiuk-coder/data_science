@@ -13,11 +13,10 @@ data = {
 
 df = pd.DataFrame(data)
 
-filtered_df = 
-df[(df['sex'] == "Female") & 
-(df['cabin_class'] == 1) & 
-(df['hasSurvived'] == False)]
+filtered_df = df[(df['sex'] == "Female") & (df['cabin_class'] == 1) & (df['hasSurvived'] == False)]
 print(filtered_df['names'])
 
-destination_df = df["destination"]
-avg_price = np.mean((df['destination'] == "Alabama"))
+state = input("Input state: ")
+cabin_class = int(input("Input cabin class: "))
+avg_price = df[(df['destination'] == state) & (df['cabin_class'] == cabin_class)]['payed_price'].mean()
+print(f"Average price in {state}: ", avg_price)
